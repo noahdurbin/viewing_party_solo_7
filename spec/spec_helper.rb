@@ -29,6 +29,7 @@ RSpec.configure do |config|
   end
 
   # rspec-mocks config goes here. You can use an alternate test double
+  require 'webmock/rspec'
   # library (such as bogus or mocha) by changing the `mock_with` option here.
   config.mock_with :rspec do |mocks|
     # Prevents you from mocking or stubbing a method that does not exist on
