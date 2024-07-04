@@ -4,7 +4,13 @@ class Movie
 
   attr_reader :title,
               :score,
-              :id
+              :id,
+              :genres,
+              :runtime,
+              :summary,
+              :tagline,
+              :top_cast,
+              :reviews
 
   def initialize(attributes)
     @id = attributes[:id]
@@ -15,7 +21,7 @@ class Movie
     @summary = attributes[:overview]
     @tagline = attributes[:tagline]
     @top_cast = set_top_cast(attributes[:cast])
-    @review = set_reviews(attributes[:reviews])
+    @reviews = set_reviews(attributes[:reviews])
   end
 
   def set_genres(genre_array)
