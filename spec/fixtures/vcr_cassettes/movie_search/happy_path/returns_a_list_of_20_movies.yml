@@ -44,15 +44,17 @@ http_interactions:
       - Accept-Encoding,accept-encoding
       - Origin
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 77cfd797d789c3b8bc1b8f2f8a42a9c6.cloudfront.net (CloudFront)
+      - 1.1 1c80fe425edf82026702c486fb324fd0.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN52-P2
       Alt-Svc:
       - h3=":443"; ma=86400
       X-Amz-Cf-Id:
-      - Q6u50O43PGUr-V2hyOgXPjALLnW268Wbjs6x5Jq_ybUvGB0scl2s9Q==
+      - oQlJ16nYaJy1WHzxZy3XLHb16j8x6r-bh9Zl4qqIx5GZVOLHUasOsQ==
+      Age:
+      - '74'
     body:
       encoding: UTF-8
       string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/frDS8A5vIP927KYAxTVVKRIbqZw.jpg","genre_ids":[14,28,80],"id":268,"original_language":"en","original_title":"Batman","overview":"Batman
@@ -148,5 +150,5 @@ http_interactions:
         to Bruce Wayne''s ex-girlfriend, blames the Dark Knight for killing a crime
         lord, Batman decides to fight against him.","popularity":22.343,"poster_path":"/liYhLBTKpQctFupATfdk4qnOhMJ.jpg","release_date":"1993-12-25","title":"Batman:
         Mask of the Phantasm","video":false,"vote_average":7.468,"vote_count":1047}],"total_pages":9,"total_results":164}'
-  recorded_at: Wed, 03 Jul 2024 23:29:56 GMT
+  recorded_at: Wed, 03 Jul 2024 23:31:10 GMT
 recorded_with: VCR 6.2.0

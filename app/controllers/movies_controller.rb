@@ -1,23 +1,17 @@
-class MovieController < ApplicationController
+class MoviesController < ApplicationController
   def discover
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
-  def top_rated; end
+  def index
+    facade = MovieFacade.new
+    @user = User.find(params[:user_id])
 
-  def search
-    keyword = params[:search]
-    @user = User.find(params[:id])
-    service = MovieService.new
-
-    response = service.search(keyword)
-
-    data = JSON.parse(response.body, symbolize_names: true)
-
-    movies = data[:results].first(20)
-
-    movies.each do |movie|
-      Movie.new(movie)
+    if params[:search].nil?
+      @movies = facade.top_rated
+    else
+      keyword = params[:search]
+      @movies = facade.search(keyword)
     end
   end
 end

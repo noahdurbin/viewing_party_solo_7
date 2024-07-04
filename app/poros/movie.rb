@@ -1,4 +1,4 @@
-class movie
+class Movie
   attr_reader :title,
               :score,
               :id

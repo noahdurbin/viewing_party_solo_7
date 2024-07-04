@@ -79,6 +79,7 @@ VCR.configure do |config|
     Rails.application.credentials.tmdb[:apikey]
   end
   config.configure_rspec_metadata!
+  config.allow_http_connections_when_no_cassette = false
   config.before_record do |i|
     i.response.body.force_encoding('UTF-8')
   end
