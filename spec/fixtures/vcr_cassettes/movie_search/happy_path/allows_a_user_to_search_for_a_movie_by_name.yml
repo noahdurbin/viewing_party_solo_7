@@ -25,34 +25,36 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 03 Jul 2024 23:29:56 GMT
+      - Wed, 03 Jul 2024 17:49:17 GMT
       Server:
       - openresty
       Cache-Control:
-      - public, max-age=24257
+      - public, max-age=19473
       X-Memc:
       - HIT
       X-Memc-Key:
       - 42dd19a497cd590f7963e472fd1c3079
       X-Memc-Age:
-      - '933'
+      - '4185'
       X-Memc-Expires:
-      - '24257'
+      - '19473'
       Etag:
-      - W/"ce228a81b7797eb3b1105a070330caa3"
+      - W/"2ce9d4fb190db80f37ccf9c4502a7ce5"
       Vary:
       - Accept-Encoding,accept-encoding
       - Origin
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 77cfd797d789c3b8bc1b8f2f8a42a9c6.cloudfront.net (CloudFront)
+      - 1.1 5d351175d5947d478733fbecdab866f6.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN52-P2
       Alt-Svc:
       - h3=":443"; ma=86400
       X-Amz-Cf-Id:
-      - Q6u50O43PGUr-V2hyOgXPjALLnW268Wbjs6x5Jq_ybUvGB0scl2s9Q==
+      - qY0fi2qxS_ypqK09WzpFI5OEQb9jvVsev_SS-0wAzS78xXjYdnX9uQ==
+      Age:
+      - '15876'
     body:
       encoding: UTF-8
       string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/frDS8A5vIP927KYAxTVVKRIbqZw.jpg","genre_ids":[14,28,80],"id":268,"original_language":"en","original_title":"Batman","overview":"Batman
@@ -86,7 +88,7 @@ http_interactions:
         with what sort of hero it really needs. And with Batman and Superman at war
         with one another, a new threat quickly arises, putting mankind in greater
         danger than it’s ever known before.","popularity":63.697,"poster_path":"/5UsK3grJvtQrtzEgqNlDljJW96w.jpg","release_date":"2016-03-23","title":"Batman
-        v Superman: Dawn of Justice","video":false,"vote_average":6.0,"vote_count":17643},{"adult":false,"backdrop_path":"/8pOUmMgVnl1tYNtTRTE5TeyGBGD.jpg","genre_ids":[16,28,878],"id":485942,"original_language":"ja","original_title":"ニンジャバットマン","overview":"Batman,
+        v Superman: Dawn of Justice","video":false,"vote_average":5.969,"vote_count":17642},{"adult":false,"backdrop_path":"/8pOUmMgVnl1tYNtTRTE5TeyGBGD.jpg","genre_ids":[16,28,878],"id":485942,"original_language":"ja","original_title":"ニンジャバットマン","overview":"Batman,
         along with many of his allies and adversaries, finds himself transported to
         feudal Japan by Gorilla Grodd''s time displacement machine.","popularity":12.049,"poster_path":"/5xSB0Npkc9Fd9kahKBsq9P4Cdzp.jpg","release_date":"2018-06-15","title":"Batman
         Ninja","video":false,"vote_average":5.791,"vote_count":824},{"adult":false,"backdrop_path":"/3WP0RObZ2t7ShHfqQpKPljF9B22.jpg","genre_ids":[28,14],"id":364,"original_language":"en","original_title":"Batman
@@ -148,5 +150,5 @@ http_interactions:
         to Bruce Wayne''s ex-girlfriend, blames the Dark Knight for killing a crime
         lord, Batman decides to fight against him.","popularity":22.343,"poster_path":"/liYhLBTKpQctFupATfdk4qnOhMJ.jpg","release_date":"1993-12-25","title":"Batman:
         Mask of the Phantasm","video":false,"vote_average":7.468,"vote_count":1047}],"total_pages":9,"total_results":164}'
-  recorded_at: Wed, 03 Jul 2024 23:29:56 GMT
+  recorded_at: Wed, 03 Jul 2024 22:13:53 GMT
 recorded_with: VCR 6.2.0
