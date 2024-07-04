@@ -14,4 +14,10 @@ class MoviesController < ApplicationController
       @movies = facade.search(keyword)
     end
   end
+
+  def show
+    facade = MovieFacade.new
+    @user = User.find(params[:user_id])
+    @movie = facade.movie_details(params[:movie_id])
+  end
 end

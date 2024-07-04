@@ -1,0 +1,28 @@
+<div class="movie-details">
+  <h1><%= @movie.title %></h1>
+  <p><%= @movie.tagline %></p>
+
+  <p>Average Rating: <%= @movie.score %></p>
+  <p>Runtime: <%= @movie.runtime %></p>
+
+  <h2>Summary</h2>
+  <p><%= @movie.summary %></p>
+
+  <h2>Top 10 Cast</h2>
+  <ul>
+  <% @movie.top_cast.each do |cast_member|%>
+    <li><%= cast_member.name %> as <%= cast_member.character %></li>
+  <% end %>
+  </ul>
+
+  <h2>Reviews</h2>
+  <% @movie.reviews.each do |review| %>
+    <p><%= review.author %></p>
+    <p><%= review.content %></p>
+  <% end %>
+</div>
+
+<div class="links">
+  <%= link_to "Return to Discover Movies", "/users/#{@user.id}/discover" %>
+  <%= link_to "Create Viewing Party", "/users/#{@user.id}/discover" %>
+</div>
