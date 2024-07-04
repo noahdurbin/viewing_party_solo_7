@@ -20,7 +20,7 @@ class Movie
     @runtime = set_runtime(attributes[:runtime])
     @summary = attributes[:overview]
     @tagline = attributes[:tagline]
-    @top_cast = set_top_cast(attributes[:cast])
+    @top_cast = set_top_cast(attributes[:credits])
     @reviews = set_reviews(attributes[:reviews])
   end
 
@@ -38,9 +38,10 @@ class Movie
     "#{hours}h #{minutes}m"
   end
 
-  def set_top_cast(total_cast)
-    return [] unless total_cast
-    total_cast.first(10).map do |cast_member|
+  def set_top_cast(credits)
+    return [] unless credits
+    cast = credits[:cast]
+    cast.first(10).map do |cast_member|
       CastMember.new(cast_member[:id], cast_member[:name], cast_member[:character])
     end
   end
