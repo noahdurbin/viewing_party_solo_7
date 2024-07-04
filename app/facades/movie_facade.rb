@@ -8,4 +8,9 @@ class MovieFacade
     service = MovieService.new
     service.top_rated
   end
+
+  def movie_details(movie_id)
+    service = MovieService.new
+    service.movie_details(movie_id)
+  end
 end
