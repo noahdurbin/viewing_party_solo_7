@@ -33,5 +33,7 @@ class MovieService
     response = conn.get("/3/movie/#{movie_id}?append_to_response=credits,reviews")
 
     data = JSON.parse(response.body, symbolize_names: true)
+
+    @movie = Movie.new(data)
   end
 end

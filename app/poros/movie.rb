@@ -25,24 +25,28 @@ class Movie
   end
 
   def set_genres(genre_array)
+    return [] unless genre_array
     genre_array.map do |genre|
       genre[:name]
     end
   end
 
   def set_runtime(runtime)
+    return nil unless runtime
     hours = runtime / 60
     minutes = runtime % 60
     "#{hours}h #{minutes}m"
   end
 
   def set_top_cast(total_cast)
+    return [] unless total_cast
     total_cast.first(10).map do |cast_member|
       CastMember.new(cast_member[:id], cast_member[:name], cast_member[:character])
     end
   end
 
   def set_reviews(review_list)
+    return [] unless review_list
     results = review_list[:results]
     results.map do |review|
       Review.new(review[:author], review[:content])
