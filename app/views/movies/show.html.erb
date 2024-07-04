@@ -21,3 +21,8 @@
     <p><%= review.content %></p>
   <% end %>
 </div>
+
+<div class="links">
+  <%= link_to "Return to Discover Movies", "/users/#{@user.id}/discover" %>
+  <%= link_to "Create Viewing Party", "/users/#{@user.id}/discover" %>
+</div>
