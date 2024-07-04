@@ -1,0 +1,8 @@
+<h1> Results </h1>
+<% @movies.each do |movie| %>
+  <div class="movie">
+    <%= movie.title %>
+    <%= movie.score %> <br>
+  </div>
+<% end %> <br>
+<%= link_to "Discover Movies", "/users/#{@user.id}/discover" %>
