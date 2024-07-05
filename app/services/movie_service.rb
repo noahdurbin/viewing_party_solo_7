@@ -11,10 +11,6 @@ class MovieService
     data = JSON.parse(response.body, symbolize_names: true)
 
     movies = data[:results].first(20)
-
-    movies.map do |movie|
-      Movie.new(movie)
-    end
   end
 
   def top_rated
@@ -22,11 +18,7 @@ class MovieService
 
     data = JSON.parse(response.body, symbolize_names: true)
 
-    movies = data[:results].first(20)
-
-    movies.map do |movie|
-      Movie.new(movie)
-    end
+    data[:results].first(20)
   end
 
   def movie_details(movie_id)
@@ -35,5 +27,13 @@ class MovieService
     data = JSON.parse(response.body, symbolize_names: true)
 
     @movie = Movie.new(data)
+  end
+
+  def get_usa_providers(movie_id)
+    response = conn.get("/3/movie/#{movie_id}/watch/providers")
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    data[:results][:US]
   end
 end
