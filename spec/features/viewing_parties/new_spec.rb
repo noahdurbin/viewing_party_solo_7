@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'viewing party new page' do
   before :each do
     @user = User.create(name: 'Noah', email: 'ndurbin@gmail.com')
+    @user2 = User.create(name: 'Paul', email: 'pdurbin@gmail.com')
     @movie = Movie.new(
        {
          "adult": false,
@@ -27,17 +28,34 @@ RSpec.describe 'viewing party new page' do
   end
   it 'can create a new viewing party' do
     VCR.use_cassette("/movie_show_page/displays_a_movies_information/shows_a_movies_title_and_other_details") do
-      visit "/users/#{@user.id}/movies/#{@movie.id}"
+      visit "/users/#{@user.id}/movies/#{@movie.id}/viewing_party/new"
 
-      click_button "Create New Viewing Party"
-
-      expect(page).to have_content(@movie.title)
       fill_in 'When', with: Date.tomorrow.strftime('%Y-%m-%d')
       fill_in 'Start Time', with: '07:00'
 
       click_button "Create Party"
 
       expect(page).to have_content('Party Created Successfully')
+    end
+  end
+
+  it 'can add multiple people to the party' do
+    VCR.use_cassette("/movie_show_page/displays_a_movies_information/shows_a_movies_title_and_other_details") do
+      visit "/users/#{@user.id}/movies/#{@movie.id}/viewing_party/new"
+
+      fill_in 'When', with: Date.tomorrow.strftime('%Y-%m-%d')
+      fill_in 'Start Time', with: '07:00'
+
+      within('.invites') do
+        check "invite_#{@user2.id}"
+      end
+
+      click_button "Create Party"
+
+      expect(page).to have_content('Party Created Successfully')
+      within('.viewing_party') do
+        expect(page).to have_content("Paul")
+      end
     end
   end
 end

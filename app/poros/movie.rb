@@ -7,6 +7,7 @@ class Movie
               :id,
               :genres,
               :runtime,
+              :runtimemin,
               :summary,
               :tagline,
               :top_cast,
@@ -18,6 +19,7 @@ class Movie
     @score = attributes[:vote_average]
     @genres = set_genres(attributes[:genres])
     @runtime = set_runtime(attributes[:runtime])
+    @runtimemin = attributes[:runtime]
     @summary = attributes[:overview]
     @tagline = attributes[:tagline]
     @top_cast = set_top_cast(attributes[:credits])
