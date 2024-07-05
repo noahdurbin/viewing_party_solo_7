@@ -17,9 +17,16 @@ RSpec.describe MovieFacade do
       facade = MovieFacade.new
       response = facade.search('Interstellar')
 
-      expect(facade).to be_a MovieFacade
       expect(response).to be_a Array
       expect(response).to be_all Movie
     end
+  end
+
+  it 'can retrieve a movies details with its id', :vcr do
+    facade = MovieFacade.new
+    response = facade.movie_details(278)
+
+    expect(response).to be_a Movie
+    expect(response.title).to eq("The Shawshank Redemption")
   end
 end

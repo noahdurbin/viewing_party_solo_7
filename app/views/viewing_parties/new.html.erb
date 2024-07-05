@@ -1,0 +1,21 @@
+<h1><%= @movie.title %></h1>
+<p> New Viewing Party </p>
+<%= form_with url: "/users/#{@user.id}/movies/#{@movie.id}/viewing_party", method: :post, data: {turbo: false}, local: true do |f| %>
+  <%= f.label :duration, "Duration of Party (minutes):" %>
+  <%= f.number_field :duration, value: @movie.runtimemin, min: @movie.runtimemin, max: 1000 %>
+
+  <%= f.label :date, "When:" %>
+  <%= f.date_field :date, required: true %>
+
+  <%= f.label :start_time, "Start Time:" %>
+  <%= f.time_field :start_time, required: true %>
+
+  <div class="invites">
+    <% @users.each do |user| %>
+        <%= f.check_box :invite, {multiple: true}, user.id, nil %>
+        <%= f.label "invite_#{user.id}", user.name %> <br/>
+    <% end %>
+  </div>
+
+  <%= f.submit "Create Party" %>
+<% end %>
