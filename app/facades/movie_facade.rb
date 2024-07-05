@@ -1,16 +1,25 @@
 class MovieFacade
+  def initialize(service = MovieService.new)
+    @service = service
+  end
+
   def search(keyword)
-    service = MovieService.new
-    service.search(keyword)
+    response = @service.search(keyword)
+    create_movies(response)
   end
 
   def top_rated
-    service = MovieService.new
-    service.top_rated
+    response = @service.top_rated
+    create_movies(response)
   end
 
   def movie_details(movie_id)
-    service = MovieService.new
-    return service.movie_details(movie_id)
+    @service.movie_details(movie_id)
+  end
+
+  def create_movies(movie_array)
+    movie_array.map do |movie|
+      Movie.new(movie)
+    end
   end
 end

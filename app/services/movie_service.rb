@@ -11,10 +11,6 @@ class MovieService
     data = JSON.parse(response.body, symbolize_names: true)
 
     movies = data[:results].first(20)
-
-    movies.map do |movie|
-      Movie.new(movie)
-    end
   end
 
   def top_rated
@@ -22,11 +18,7 @@ class MovieService
 
     data = JSON.parse(response.body, symbolize_names: true)
 
-    movies = data[:results].first(20)
-
-    movies.map do |movie|
-      Movie.new(movie)
-    end
+    data[:results].first(20)
   end
 
   def movie_details(movie_id)
