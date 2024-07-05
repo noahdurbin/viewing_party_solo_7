@@ -24,4 +24,11 @@ RSpec.describe MovieService do
     expect(response.score).to eq(8.705)
     expect(response.top_cast.length).to eq(10)
   end
+
+  it 'should be able to retrieve a movies providers', :vcr do
+    response = MovieService.new.get_usa_providers(278)
+
+    expect(response).to be_a Hash
+    expect(response[:rent].first[:provider_name]).to eq("Apple TV")
+  end
 end

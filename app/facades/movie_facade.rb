@@ -17,6 +17,10 @@ class MovieFacade
     @service.movie_details(movie_id)
   end
 
+  def providers(movie_id)
+    @service.get_usa_providers(movie_id)
+  end
+
   def create_movies(movie_array)
     movie_array.map do |movie|
       Movie.new(movie)

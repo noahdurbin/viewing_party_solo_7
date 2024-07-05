@@ -28,4 +28,12 @@ class MovieService
 
     @movie = Movie.new(data)
   end
+
+  def get_usa_providers(movie_id)
+    response = conn.get("/3/movie/#{movie_id}/watch/providers")
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    data[:results][:US]
+  end
 end
